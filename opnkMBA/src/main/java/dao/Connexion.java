@@ -15,7 +15,7 @@ public class Connexion {
 	private static Connection connect = null;
 
 	
-	private static final String ID = "AlainB";
+	private static final String ID = "Bamaye";
 	private static final String MDP = "toto";
 
 	private static final int COLONNE_TEXTE = 10;
@@ -32,7 +32,7 @@ public class Connexion {
             try {
                 String driverName = "com.mysql.cj.jdbc.Driver";
                 Class.forName(driverName);
-                connect = DriverManager.getConnection("jdbc:mysql://localhost:8889/avion", "Mellit", "toto");
+                connect = DriverManager.getConnection("jdbc:mysql://localhost:8889/openknowledge", ID, MDP);
                 System.out.println("connecté");
             }
             catch (SQLException | ClassNotFoundException e){

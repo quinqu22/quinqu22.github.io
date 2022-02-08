@@ -1,6 +1,25 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>fr.aftec.openknowledge</groupId>
-  <artifactId>opnkMBA</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>javafx.aftec.fr</groupId>
+	<artifactId>javafx</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+	<javafx.version>8.0</javafx.version>
+	</properties>
+	<dependencies>
+		<dependency>
+		<groupId>com.oracle</groupId> 
+			<artifactId>javafx</artifactId> 
+			<version>${javafx.version}</version> 
+			<systemPath>/Applications/JavaFX Scene Builder 2.0.app/Contents/PlugIns/jdk1.8.0.jdk/Contents/Home/jre/lib/ext/jfxrt.jar</systemPath> 
+			<scope>system</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.24</version>
+		</dependency>
+	</dependencies>
 </project>

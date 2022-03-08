@@ -46,14 +46,6 @@
             </Menu>
          </menus>
       </MenuBar>
-      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-         <children>
-            <Label layoutX="1.0" layoutY="144.0" prefHeight="84.0" prefWidth="640.0" text="Cours présentiel de {Matiere.nom} en {Salle.id} avec {Animateur.nom}">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>

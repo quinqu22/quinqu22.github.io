@@ -16,15 +16,18 @@ public class PromotionDAO extends DAO<Promotion> {
 	private static final String DATE_FIN = "dateFin";
 
 	private static PromotionDAO instance=null;
+	
 	public static PromotionDAO getInstance(){
 		if (instance==null){
 			instance = new PromotionDAO();
 		}
 		return instance;
 	}
+	
 	private PromotionDAO() {
 		super();
 	}
+	
 	@Override
 	public boolean create(Promotion promotion) {
 		boolean succes=true;
@@ -62,13 +65,38 @@ public class PromotionDAO extends DAO<Promotion> {
 		return succes;
 	}
 	@Override
-	public boolean update(Promotion obj) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean update(Promotion promotion) {
+		boolean succes = true;
+		try {
+			int id = promotion.getID();
+			String requete = "UPDATE "+TABLE+" ("+DATE_DEBUT+", "+DATE_FIN+") VALUES (?, ?) WHERE ("+CLE_PRIMAIRE+" = ?"+")";
+			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
+			pst.setString(1, promotion.getDateDeb());
+			pst.setString(2, promotion.getDateFin());
+			pst.setInt(3, id );
+			pst.executeUpdate();// on execute la requete qui consiste a mettre a jour un enregistrement de la table 
+		} catch (SQLException e) {
+			succes=false;
+			e.printStackTrace();
+		}
+		return succes;
+		
 	}
 	@Override
-	public Promotion read(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Promotion read(p) {
+		boolean succes = true;
+		try {
+			int id = promotion.getID();
+			String requete = "SELECT *  FROM "+TABLE+" ("+DATE_DEBUT+", "+DATE_FIN+") VALUES (?, ?) WHERE ("+CLE_PRIMAIRE+" = ?"+")";
+			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
+			.setString(2, promotion.getDateFin());
+			pst.setInt(3, id );
+			pst.executeUpdate();// on execute la requete qui consiste a mettre a jour un enregistrement de la table 
+		} catch (SQLException e) {
+			succes=false;
+			e.printStackTrace();
+		}
+		return succes;
+		
 	}
 }

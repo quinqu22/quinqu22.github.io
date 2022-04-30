@@ -1,40 +1,53 @@
 package openbd;
 
+import java.util.Date;
+
 public class Cours {
-	int ID;
-	String dateDeb;
-	String dateFin;
+	private int id;
+	private Date dateDeb;
+	private Date dateFin;
+	
+	private Matiere matiere;
 	
 	//Contructeur de la classe Cours
-	Cours(int ID, String dateDeb, String dateFin){
+	public Cours(int id, Date dateDeb, Date dateFin, Matiere matiere){
 		//Initialisation de l'atrribut avec l'argument
-		this.ID = ID;
+		this.id = id;
 		this.dateDeb = dateDeb;
+		this.dateFin = dateFin;
+		this.matiere = matiere;
+	}
+
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Date getDateDeb() {
+		return this.dateDeb;
+	}
+
+	public void setDateDeb(Date dateDeb) {
+		this.dateDeb = dateDeb;
+	}
+
+	public Date getDateFin() {
+		return this.dateFin;
+	}
+
+	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
 
-	public int getID() {
-		return ID;
+	public Matiere getMatiere() {
+		return this.matiere;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
-	}
-
-	public String getDateDeb() {
-		return dateDeb;
-	}
-
-	public void setDateDeb(String dateDeb) {
-		this.dateDeb = dateDeb;
-	}
-
-	public String getDateFin() {
-		return dateFin;
-	}
-
-	public void setDateFin(String dateFin) {
-		this.dateFin = dateFin;
+	public void setMatiere(Matiere matiere) {
+		this.matiere = matiere;
 	}
 	
 }

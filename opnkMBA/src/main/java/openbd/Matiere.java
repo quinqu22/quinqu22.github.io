@@ -1,29 +1,29 @@
 package openbd;
 
 public class Matiere {
-	int ID;
-	String denomination;
+	private int id;
+	private String nom;
 	
-	Matiere(int ID, String denomination){
-		this.ID = ID;
-		this.denomination = denomination;
+	public Matiere(int id, String nom){
+		this.id = id;
+		this.nom = nom;
 		
 	}
 
-	public int getID() {
-		return ID;
+	public int getId() {
+		return this.id;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getDenomination() {
-		return denomination;
+	public String getNom() {
+		return this.nom;
 	}
 
-	public void setDenomination(String denomination) {
-		this.denomination = denomination;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 	
 }

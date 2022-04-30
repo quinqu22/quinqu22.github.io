@@ -1,38 +1,41 @@
 package openbd;
 
 public class Formation {
-	int ID;
-	String denomination;
-	String diplome;
+	private final int DIPLOME = 0;
+	private final int CERTIFICATION = 1;	
 	
-	Formation(int ID, String denomination, String diplome){
-		this.ID = ID;
+	private int id;
+	private String denomination;
+	private int certificationOuDiplome;
+	
+	public Formation(int id, String denomination, int certificationOuDiplome){
+		this.id = id;
 		this.denomination = denomination;
-		this.diplome = diplome;
+		this.certificationOuDiplome = certificationOuDiplome;
 	}
 
-	public int getID() {
-		return ID;
+	public int getId() {
+		return this.id;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getDenomination() {
-		return denomination;
+		return this.denomination;
 	}
 
 	public void setDenomination(String denomination) {
 		this.denomination = denomination;
 	}
 
-	public String getDiplome() {
-		return diplome;
+	public int getCertificationOuDiplome() {
+		return this.certificationOuDiplome;
 	}
 
-	public void setDiplome(String Diplome) {
-		this.diplome = Diplome;
+	public void setCertificationOuDiplome(int certificationOuDiplome) {
+		this.certificationOuDiplome = certificationOuDiplome;
 	}
 	
 }

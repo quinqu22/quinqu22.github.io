@@ -1,12 +1,12 @@
 package openbd;
 
 public class Salle {
-	int id;
-	String denomination;
-	boolean equipementVirtuel;
-	int nbPlaces;
+	private int id;
+	private String denomination;
+	private boolean equipementVirtuel;
+	private int nbPlaces;
 	
-	Salle(int id, String denomination, boolean equipementVirtuel, int nbPlaces){
+	public Salle(int id, String denomination, boolean equipementVirtuel, int nbPlaces){
 		this.id = id;
 		this.denomination = denomination;
 		this.equipementVirtuel = equipementVirtuel;
@@ -14,7 +14,7 @@ public class Salle {
 	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
@@ -22,7 +22,7 @@ public class Salle {
 	}
 
 	public String getDenomination() {
-		return denomination;
+		return this.denomination;
 	}
 
 	public void setDenomination(String denomination) {
@@ -30,7 +30,7 @@ public class Salle {
 	}
 
 	public boolean isEquipementVirtuel() {
-		return equipementVirtuel;
+		return this.equipementVirtuel;
 	}
 
 	public void setEquipementVirtuel(boolean equipementVirtuel) {
@@ -38,7 +38,7 @@ public class Salle {
 	}
 
 	public int getNbPlaces() {
-		return nbPlaces;
+		return this.nbPlaces;
 	}
 
 	public void setNbPlaces(int nbPlaces) {

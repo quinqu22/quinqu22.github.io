@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 import openbd.Formation;
 
-public class FormationDAO extends DAO<Formation> {
+public class _FormationDAO extends DAO<Formation> {
 
 	private static final String TABLE = "Formation";
 	private static final String CLE_PRIMAIRE = "ID";
@@ -15,14 +15,14 @@ public class FormationDAO extends DAO<Formation> {
 	private static final String DENOMINATION = "denomination";
 	private static final String DIPLOME = "diplôme";
 
-	private static FormationDAO instance=null;
-	public static FormationDAO getInstance(){
+	private static _FormationDAO instance=null;
+	public static _FormationDAO getInstance(){
 		if (instance==null){
-			instance = new FormationDAO();
+			instance = new _FormationDAO();
 		}
 		return instance;
 	}
-	private FormationDAO() {
+	private _FormationDAO() {
 		super();
 	}
 	@Override

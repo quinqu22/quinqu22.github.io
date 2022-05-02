@@ -144,19 +144,19 @@ public class Connexion {
 		switch (rsmd.getColumnType(j)) {
 		case Types.VARCHAR:
 			valeurNormee = res.getString(j);
-			valeurNormee = Connexion.norme(valeurNormee, Connexion.COLONNE_TEXTE, Alignement.Droite);
+			valeurNormee = Connexion.norme(valeurNormee, Connexion.COLONNE_TEXTE, _Alignement.Droite);
 			break;
 		case Types.DATE:
 			valeurNormee = res.getDate(j).toString();
-			valeurNormee = Connexion.norme(valeurNormee, Connexion.COLONNE_DATE, Alignement.Droite);
+			valeurNormee = Connexion.norme(valeurNormee, Connexion.COLONNE_DATE, _Alignement.Droite);
 			break;
 		case Types.TIMESTAMP:
 			valeurNormee = res.getTimestamp(j).toString();
-			valeurNormee = Connexion.norme(valeurNormee, Connexion.COLONNE_DATE, Alignement.Droite);
+			valeurNormee = Connexion.norme(valeurNormee, Connexion.COLONNE_DATE, _Alignement.Droite);
 			break;
 		case Types.INTEGER:
 			valeurNormee = res.getInt(j)+"";
-			valeurNormee = Connexion.norme(valeurNormee, Connexion.COLONNE_ENTIER, Alignement.Droite);
+			valeurNormee = Connexion.norme(valeurNormee, Connexion.COLONNE_ENTIER, _Alignement.Droite);
 			break;
 		default:
 			break;
@@ -169,16 +169,16 @@ public class Connexion {
 		String nomColonneNorme = rsmd.getColumnName(j);
 		switch (rsmd.getColumnType(j)) {
 		case Types.VARCHAR:
-			nomColonneNorme = Connexion.norme(nomColonneNorme, Connexion.COLONNE_TEXTE, Alignement.Droite);
+			nomColonneNorme = Connexion.norme(nomColonneNorme, Connexion.COLONNE_TEXTE, _Alignement.Droite);
 			break;
 		case Types.DATE:
-			nomColonneNorme = Connexion.norme(nomColonneNorme, Connexion.COLONNE_DATE, Alignement.Droite);
+			nomColonneNorme = Connexion.norme(nomColonneNorme, Connexion.COLONNE_DATE, _Alignement.Droite);
 			break;
 		case Types.TIMESTAMP:
-			nomColonneNorme = Connexion.norme(nomColonneNorme, Connexion.COLONNE_DATE, Alignement.Droite);
+			nomColonneNorme = Connexion.norme(nomColonneNorme, Connexion.COLONNE_DATE, _Alignement.Droite);
 			break;
 		case Types.INTEGER:
-			nomColonneNorme = Connexion.norme(nomColonneNorme, Connexion.COLONNE_ENTIER, Alignement.Droite);
+			nomColonneNorme = Connexion.norme(nomColonneNorme, Connexion.COLONNE_ENTIER, _Alignement.Droite);
 			break;
 		default:
 			break;
@@ -194,7 +194,7 @@ public class Connexion {
 	 * @param aligne  gauche / droite / centr�
 	 * @return la chaine de caract�re normalis� pour affichage de tableau.
 	 */
-	private static String norme(String valeurNormee, int colonneTexte, Alignement aligne) {
+	private static String norme(String valeurNormee, int colonneTexte, _Alignement aligne) {
 		String rep = "";
 		int tailleEffective =valeurNormee.length(); 
 		if (tailleEffective>=colonneTexte) {

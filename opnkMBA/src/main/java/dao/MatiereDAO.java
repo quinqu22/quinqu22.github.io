@@ -12,7 +12,7 @@ public class MatiereDAO extends DAO<Matiere> {
 	private static final String TABLE = "matiere";
 	private static final String CLE_PRIMAIRE = "ID";
 
-	private static final String DENOMINATION= "denomination";
+	private static final String NOM= "nom";
 	
 
 	private static MatiereDAO instance=null;

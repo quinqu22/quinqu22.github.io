@@ -9,24 +9,24 @@ import java.sql.Statement;
 import openbd.Utilisateur;
 
 
-public class UtilisateurDAO extends DAO<Utilisateur> {
+public class _UtilisateurDAO extends DAO<Utilisateur> {
 
 	private static final String TABLE = "Utilisateur";
 	private static final String CLE_PRIMAIRE = "ID";
 	private static final String Nom = "nom";
 	private static final String Prénom = "prénom";
 	private static final String motDePasse = "mot de passe";
-	private static UtilisateurDAO instance=null;
+	private static _UtilisateurDAO instance=null;
 	
 	
 	
-	public static UtilisateurDAO getInstance(){
+	public static _UtilisateurDAO getInstance(){
 		if (instance==null){
-			instance = new UtilisateurDAO();
+			instance = new _UtilisateurDAO();
 		}
 		return instance;
 	}
-	private UtilisateurDAO(){
+	private _UtilisateurDAO(){
 		super();
 	}
 

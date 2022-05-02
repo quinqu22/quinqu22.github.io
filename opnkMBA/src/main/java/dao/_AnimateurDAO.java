@@ -7,23 +7,23 @@ import java.sql.Statement;
 
 import openbd.Animateur;
 
-public class AnimateurDAO extends DAO<Animateur> {
+public class _AnimateurDAO extends DAO<Animateur> {
 	private static final String TABLE = "Animateur";
 	private static final String CLE_PRIMAIRE = "id";
 	private static final String ID_HUMAIN = "idHumain";
 	//private static final String Nom = "nom";
 	//private static final String Prénom = "prénom";
 	//private static final String motDePasse = "mot de passe";
-	private static AnimateurDAO instance = null;
+	private static _AnimateurDAO instance = null;
 	
-	public static AnimateurDAO getInstance(){
+	public static _AnimateurDAO getInstance(){
 		if (instance == null){
-			instance = new AnimateurDAO();
+			instance = new _AnimateurDAO();
 		}
 		return instance;
 	}
 	
-	private AnimateurDAO(){
+	private _AnimateurDAO(){
 		super();
 	}
 

@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.LinkedList;
+
 
 import openbd.Cours;
 import openbd.Salle;
@@ -14,7 +14,7 @@ import openbd.Seance;
 public class SeanceDAO extends DAO<Seance> {
 
 	private static final String TABLE = "Seance";
-	private static final String CLE_PRIMAIRE = "id";//nom de la collone id de la tables salle
+	private static final String CLE_PRIMAIRE = "id"; //nom de la collone id de la tables salle
 	private static final String DATEDEB = "dateDeb";
 	private static final String DATEFIN = "dateFin";
 	private static final String IDSALLE = "idSalle";
@@ -100,18 +100,19 @@ public class SeanceDAO extends DAO<Seance> {
 			int rowCount = 0;
 			if (rs.last()) {//make cursor to point to the last row in the ResultSet object
 				rowCount = rs.getRow();
+				
 				rs.first(); //make cursor to point to the front of the ResultSet object, donc au premier enregistrement 
 			}
 			if (rowCount != 1) {
 				rs.close();
 				return null;
 			}
-			// vas chercher l'adresse memoire des deux objets 
+			
+			// vas chercher l'adresse memoire des deux objets
 			
 			Salle salle = SalleDAO.getInstance().read(rs.getInt(IDSALLE));
 			Cours cours = CoursDAO.getInstance().read(rs.getInt(IDCOURS));
 			
-			//TODO peut etre a changer les parametres de dates car il son peut etre faux 
 			seance = new Seance(rs.getInt(CLE_PRIMAIRE), rs.getDate(DATEDEB), rs.getDate(DATEFIN), salle, cours);	 
 			rs.close();
 		} catch (SQLException e) {

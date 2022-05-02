@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 import openbd.Promotion;
 
-public class PromotionDAO extends DAO<Promotion> {
+public class _PromotionDAO extends DAO<Promotion> {
 
 	private static final String TABLE = "Promotion";
 	private static final String CLE_PRIMAIRE = "ID";
@@ -24,7 +24,7 @@ public class PromotionDAO extends DAO<Promotion> {
 		return instance;
 	}
 	
-	private PromotionDAO() {
+	private _PromotionDAO() {
 		super();
 	}
 	

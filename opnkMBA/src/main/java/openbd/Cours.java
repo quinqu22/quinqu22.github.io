@@ -1,6 +1,6 @@
 package openbd;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Cours {
 	private int id;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.control.*?>
@@ -7,62 +8,32 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="505.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="Agenda">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Salle">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Informations personnelles">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button layoutX="549.0" layoutY="330.0" mnemonicParsing="false" text="Connexion" />
-            <Label layoutX="158.0" layoutY="100.0" text="Identifiant">
+            <Button fx:id="idandmdpbutton" layoutX="455.0" layoutY="315.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="300.0" text="Connexion" />
+            <Label layoutX="455.0" layoutY="190.0" text="Identifiant">
                <font>
-                  <Font size="25.0" />
+                  <Font name="Copperplate" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="158.0" layoutY="171.0" text="Mot de passe">
+            <TextField fx:id="motDepassefield" layoutX="455.0" layoutY="281.0" prefHeight="27.0" prefWidth="300.0" />
+            <TextField fx:id="identifiantfield" layoutX="455.0" layoutY="222.0" prefHeight="27.0" prefWidth="300.0" />
+            <Pane prefHeight="505.0" prefWidth="377.0" style="-fx-background-color: #D9D9D9;">
+               <children>
+                  <ImageView fitHeight="407.0" fitWidth="418.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Label layoutX="455.0" layoutY="249.0" text="mot de passe">
                <font>
-                  <Font size="25.0" />
+                  <Font name="Copperplate" size="30.0" />
                </font>
             </Label>
-            <TextField layoutX="158.0" layoutY="201.0" prefHeight="27.0" prefWidth="300.0" />
-            <TextField layoutX="158.0" layoutY="130.0" prefHeight="27.0" prefWidth="300.0" />
       </children>
     </AnchorPane>
   </children>

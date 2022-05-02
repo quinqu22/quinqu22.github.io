@@ -64,6 +64,7 @@ public class PromotionDAO extends DAO<Promotion> {
 		}
 		return succes;
 	}
+	
 	@Override
 	public boolean update(Promotion promotion) {
 		boolean succes = true;

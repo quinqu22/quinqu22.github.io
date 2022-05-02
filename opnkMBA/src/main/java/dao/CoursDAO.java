@@ -76,7 +76,7 @@ public class CoursDAO extends DAO<Cours> {
 	public boolean update(Cours cours) {
 		boolean succes = true;
 		try {           
-			String requete = "UPDATE"+TABLE+" ("+DATEDEBUT+", "+DATEFIN+", "+IDMATIERE+") VALUES (?, ?) WHERE ("+CLE_PRIMAIRE+" = ?"+")";
+			String requete = "UPDATE"+TABLE+" ("+DATEDEBUT+", "+DATEFIN+", "+IDMATIERE+") VALUES (?, ?, ?) WHERE ("+CLE_PRIMAIRE+" = ?"+")";
 			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
 			pst.setDate(1, cours.getDateDeb());
 			pst.setDate(2, cours.getDateFin());

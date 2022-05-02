@@ -19,7 +19,7 @@ public class PromotionDAO extends DAO<Promotion> {
 	private static final String DATEDEB = "dateDeb";
 	private static final String DATEFIN = "dateFin";
 	private static final String IDFORMATION = "idFormation";
-	
+
 
 	private static PromotionDAO instance=null;
 	// CRÉE UNE INSTance si elle est null
@@ -29,13 +29,13 @@ public class PromotionDAO extends DAO<Promotion> {
 		}
 		return instance;
 	}
-	
-	
+
+
 	private PromotionDAO() {
 		super();
 	}
-	
-	
+
+
 	@Override
 	public boolean create(Promotion promotion) {
 		boolean succes=true;
@@ -47,7 +47,7 @@ public class PromotionDAO extends DAO<Promotion> {
 			pst.setInt(3, promotion.getFormation().getId());
 			pst.executeUpdate();
 			//R�cup�rer la cl� qui a �t� g�n�r�e et la pousser dans l'objet initial
-			
+
 			ResultSet rs = pst.getGeneratedKeys();
 			if (rs.next()) {
 				promotion.setId(rs.getInt(1));
@@ -74,7 +74,7 @@ public class PromotionDAO extends DAO<Promotion> {
 		}
 		return succes;
 	}
-	
+
 	@Override
 	public boolean update(Promotion promotion) {
 		boolean succes = true;
@@ -92,7 +92,7 @@ public class PromotionDAO extends DAO<Promotion> {
 		return succes;
 	}
 
-	
+
 	@Override
 	public Promotion read(int id) {
 		Promotion promotion = null;

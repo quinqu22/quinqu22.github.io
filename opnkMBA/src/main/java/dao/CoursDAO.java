@@ -13,6 +13,7 @@ import openbd.Matiere;
 
 
 public class CoursDAO extends DAO<Cours> {
+	
 	private static final String TABLE = "Cours";
 	private static final String CLE_PRIMAIRE = "Id";
 	private static final String DATEDEBUT= "dateDeb";
@@ -106,9 +107,17 @@ public class CoursDAO extends DAO<Cours> {
 			if (rowCount != 1) {
 				rs.close();
 				return null;
+			
+			
 			}
-
-
+			
+			/*
+			 * pour savoir sir deux signe est compatible
+			 * public boolean 
+			 * return this.couleur==sign.couleur;
+			 */
+			
+			
 			Matiere matiere = MatiereDAO.getInstance().read(rs.getInt(id));
 			cours = new Cours(rs.getInt(CLE_PRIMAIRE), rs.getDate(DATEDEBUT), rs.getDate(DATEFIN), matiere);    
 			rs.close();

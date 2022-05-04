@@ -19,7 +19,7 @@ public class SeanceDAO extends DAO<Seance> {
 	private static final String DATEFIN = "dateFin";
 	private static final String IDSALLE = "idSalle";
 	private static final String IDCOURS = "idCours";
-	private static SeanceDAO instance=null;
+	private static SeanceDAO instance = null;
 
 	public static SeanceDAO getInstance() {
 		if (instance == null) {

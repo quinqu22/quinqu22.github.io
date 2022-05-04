@@ -1,6 +1,6 @@
 package dao;
 
-public enum _Alignement {
+public enum Alignement {
 	Droite, Gauche, Centre;
 
 }

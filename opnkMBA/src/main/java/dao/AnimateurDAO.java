@@ -7,23 +7,23 @@ import java.sql.Statement;
 
 import openbd.Animateur;
 
-public class _AnimateurDAO extends DAO<Animateur> {
+public class AnimateurDAO extends DAO<Animateur> {
 	private static final String TABLE = "Animateur";
 	private static final String CLE_PRIMAIRE = "id";
-	private static final String ID_HUMAIN = "idHumain";
+	private static final String IDHUMAIN = "idHumain";
 	//private static final String Nom = "nom";
 	//private static final String Prénom = "prénom";
 	//private static final String motDePasse = "mot de passe";
-	private static _AnimateurDAO instance = null;
+	private static AnimateurDAO instance = null;
 	
-	public static _AnimateurDAO getInstance(){
+	public static AnimateurDAO getInstance(){
 		if (instance == null){
-			instance = new _AnimateurDAO();
+			instance = new AnimateurDAO();
 		}
 		return instance;
 	}
 	
-	private _AnimateurDAO(){
+	private AnimateurDAO(){
 		super();
 	}
 
@@ -36,7 +36,7 @@ public class _AnimateurDAO extends DAO<Animateur> {
 			
 			String requete = "INSERT INTO "+TABLE+" ("+ID_HUMAIN+") VALUES (?)";
 			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
-			pst.setString(1, animateur.get());
+			pst.setString(1, animateur.());
 		
 			
 			pst.executeUpdate();

@@ -118,7 +118,7 @@ public class CoursDAO extends DAO<Cours> {
 			 */
 			
 			
-			Matiere matiere = MatiereDAO.getInstance().read(rs.getInt(id));
+			Matiere matiere = MatiereDAO.getInstance().read(rs.getInt(IDMATIERE));
 			cours = new Cours(rs.getInt(CLE_PRIMAIRE), rs.getDate(DATEDEBUT), rs.getDate(DATEFIN), matiere);    
 			rs.close();
 		} catch (SQLException e) {

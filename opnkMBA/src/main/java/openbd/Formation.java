@@ -2,7 +2,7 @@ package openbd;
 
 public class Formation {
 	private final int DIPLOME = 0;
-	private final int CERTIFICATION = 1;	
+	private final int CERTIFICATION = 1;//constante	
 	
 	private int id;
 	private String denomination;

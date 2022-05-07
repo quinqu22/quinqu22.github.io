@@ -58,7 +58,7 @@ public class MatiereDAO extends DAO<Matiere> {
 			String requete = "DELETE FROM "+TABLE+" WHERE "+CLE_PRIMAIRE+" = ?";
 			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
 			pst.setInt(1, id);
-			pst.executeUpdate();;
+			pst.executeUpdate();
 			
 		} catch (SQLException e) {
 			succes=false;

@@ -1,9 +1,18 @@
 package openbd;
 
 public class Animateur extends Humain {
+	private int id;
+	
+	public Animateur(int idHumain, String nom, String prenom, String login, String motdepasse, int id) {
+		super(idHumain, nom, prenom, login, motdepasse);
+		this.id = id;
+	}
 
-	public Animateur(int id, String nom, String prenom) {
-		super(id, nom, prenom);
-		// TODO Auto-generated constructor stub
+	public int getId() {
+		return this.id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

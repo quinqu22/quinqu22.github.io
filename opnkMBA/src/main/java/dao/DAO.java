@@ -10,7 +10,7 @@ public abstract class DAO<T> {
      * peut �tre amen� � injecter l'id cr�� dans le programme
      * @param obj
      * @return boolean si la cr�ation a �t� effective, on traite les exceptions dans la fonction
-     */
+     */w
     public abstract boolean create(T obj);
     /**
      * M�thode pour effacer selon l'id de l'objet

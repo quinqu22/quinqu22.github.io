@@ -4,93 +4,104 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+//import java.util.LinkedList;
 
 import openbd.Animateur;
 
+
 public class AnimateurDAO extends DAO<Animateur> {
+
 	private static final String TABLE = "Animateur";
-	private static final String CLE_PRIMAIRE = "id";
-	private static final String IDHUMAIN = "idHumain";
-	//private static final String Nom = "nom";
-	//private static final String Prénom = "prénom";
-	//private static final String motDePasse = "mot de passe";
-	private static AnimateurDAO instance = null;
-	
-	public static AnimateurDAO getInstance(){
-		if (instance == null){
+	private static final String CLE_PRIMAIRE = "id";//nom de la collone id de la tables animateur
+	private static final String NOM = "nom";
+	private static AnimateurDAO instance=null;
+
+	public static AnimateurDAO getInstance() {
+		if (instance == null) {
 			instance = new AnimateurDAO();
 		}
 		return instance;
 	}
-	
-	private AnimateurDAO(){
+	private AnimateurDAO() {
 		super();
 	}
 
 	@Override
 	public boolean create(Animateur animateur) {
-		boolean succes=true;// booléan qui sert à dire si la création c'est bien passée ou non 
+		boolean succes = true;// booléan qui sert à dire si la création c'est bien passée ou non 
 		try {//dans le try si il y a une exeption de type SQLException alors le try s'arrete et on rentre dans le catch
-			//HumainDAO humainDAO = HumainDAO.getInstance();
-			//humainDAO.create(animateur);//crée un humain 
-			
-			String requete = "INSERT INTO "+TABLE+" ("+ID_HUMAIN+") VALUES (?)";
+			String requete = "INSERT INTO "+TABLE+" ("+NOM+") VALUES (?, ?, ?)";
 			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
-			pst.setString(1, animateur.());
-		
-			
+			pst.setString(1, animateur.getNom());	
 			pst.executeUpdate();
 			//R�cup�rer la cl� qui a �t� g�n�r�e et la pousser dans l'objet initial
-			ResultSet rs = pst.getGeneratedKeys();// récupere l'ID de l'utilisateur qui a été genere automatiquement 
+			ResultSet rs = pst.getGeneratedKeys();// récupere l'ID de la animateur qui a été genere automatiquement 
 			if (rs.next()) { //si rs.next est false alors l'id n'as pas été generé comme il le faut 
-				utilisateur.setID(rs.getInt(1));
+				animateur.setId(rs.getInt(1));
 			}
 		} catch (SQLException e) {
-			succes=false;
+			succes = false;
 			e.printStackTrace();//printStackTrace() affiche l'exeption dans la console 
 		}
 		return succes;
 	}
 
 	@Override
-	public boolean delete(Utilisateur utilisateur) {
+	public boolean delete(Animateur animateur) {
 		boolean succes = true;
 		try {
-			int id = utilisateur.getID();
-			String requete = "DELETE FROM "+TABLE+" WHERE "+CLE_PRIMAIRE+" = ?";
+			int id = animateur.getId();
+			String requete = "DELETE FROM "+TABLE+" WHERE ("+CLE_PRIMAIRE+" = ?"+")";
 			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
 			pst.setInt(1, id);
 			pst.executeUpdate();// on execute la requete qui consiste a supprimer un enregistrement de la table 
 		} catch (SQLException e) {
-			succes=false;
+			succes = false;
 			e.printStackTrace();
 		}
 		return succes;
 	}
-	
+
 	@Override
-	public boolean update(Utilisateur utilisateur) {
+	public boolean update(Animateur animateur) {
 		boolean succes = true;
-		try {
-			int id = utilisateur.getID();
-			String requete = "UPDATE "+TABLE+" ("+Nom+", "+Prénom+","+motDePasse+") VALUES (?, ?, ?) WHERE ("+CLE_PRIMAIRE+" = ?"+")";
+		try {			
+			String requete = "UPDATE "+TABLE+" ("+NOM+") VALUES (?, ?, ?) WHERE ("+CLE_PRIMAIRE+" = ?"+")";
 			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
-			pst.setString(1, utilisateur.getNom());
-			pst.setString(2, utilisateur.getPrenom());
-			pst.setString(3, utilisateur.getmotDePaase());
-			pst.setInt(4, id );
+			pst.setString(1, animateur.getNom());
+			pst.setInt(2, animateur.getId());
 			pst.executeUpdate();// on execute la requete qui consiste a mettre a jour un enregistrement de la table 
 		} catch (SQLException e) {
-			succes=false;
+			succes = false;
 			e.printStackTrace();
 		}
 		return succes;
-		
 	}
 	@Override
-	public Utilisateur read(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Animateur read(int id) {
+		Animateur animateur = null;
+		try {			
+			String requete = "SELECT "+CLE_PRIMAIRE+", "+NOM+" FROM "+TABLE+" WHERE ("+CLE_PRIMAIRE+" = ?"+")";
+			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
+			pst.setInt(1, id);
+
+			ResultSet rs = pst.executeQuery();// on execute la requete qui consiste a selectionner la bonne animateur
+			int rowCount = 0;
+			if (rs.last()) {//make cursor to point to the last row in the ResultSet object
+				rowCount = rs.getRow();
+				rs.first(); //make cursor to point to the front of the ResultSet object, donc au premier enregistrement 
+			}
+			if (rowCount != 1) {
+				rs.close();
+				return null;
+			}
+			// a Vérifier 
+			animateur = new Animateur(rs.getInt(CLE_PRIMAIRE), rs.getString(NOM)));	 
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return animateur;
 	}
 
 }

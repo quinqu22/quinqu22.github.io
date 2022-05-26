@@ -96,7 +96,7 @@ public class AnimateurDAO extends DAO<Animateur> {
 				return null;
 			}
 			// a Vérifier 
-			animateur = new Animateur(rs.getInt(CLE_PRIMAIRE), rs.getString(NOM)));	 
+			animateur = new Animateur(rs.getInt(CLE_PRIMAIRE), rs.getString(NOM));	 
 			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();

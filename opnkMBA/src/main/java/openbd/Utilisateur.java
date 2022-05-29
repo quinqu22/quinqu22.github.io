@@ -7,7 +7,7 @@ public class Utilisateur {
 	String Prenom;
 	String motDePasse;
 	
-	Utilisateur(int ID, String Nom, String Prenom, String motDePasse){
+	public Utilisateur(int ID, String Nom, String Prenom, String motDePasse){
 		this.ID = ID;
 		this.Nom = Nom;
 		this.Prenom = Prenom;

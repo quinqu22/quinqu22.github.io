@@ -5,28 +5,32 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
+import aero.Avion;
+import openbd.Matiere;
 import openbd.Utilisateur;
 
 
-public class _UtilisateurDAO extends DAO<Utilisateur> {
+public class UtilisateurDAO extends DAO<Utilisateur> {
 
 	private static final String TABLE = "Utilisateur";
 	private static final String CLE_PRIMAIRE = "ID";
 	private static final String Nom = "nom";
 	private static final String Prénom = "prénom";
 	private static final String motDePasse = "mot de passe";
-	private static _UtilisateurDAO instance=null;
+	private static UtilisateurDAO instance=null;
 	
 	
 	
-	public static _UtilisateurDAO getInstance(){
+	public static UtilisateurDAO getInstance(){
 		if (instance==null){
-			instance = new _UtilisateurDAO();
+			instance = new UtilisateurDAO();
 		}
 		return instance;
 	}
-	private _UtilisateurDAO(){
+	private UtilisateurDAO(){
 		super();
 	}
 
@@ -90,8 +94,46 @@ public class _UtilisateurDAO extends DAO<Utilisateur> {
 	}
 	@Override
 	public Utilisateur read(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Utilisateur utilisateur = null;
+		try {			
+			String requete = "SELECT "+CLE_PRIMAIRE+", "+Nom+", "+Prénom+", "+motDePasse+" FROM "+TABLE+" WHERE ("+CLE_PRIMAIRE+" = ?"+")";
+			PreparedStatement pst = Connexion.getInstance().prepareStatement(requete);
+			pst.setInt(1, id);
+
+			ResultSet rs = pst.executeQuery();// on execute la requete qui consiste a selectionner la bonne salle
+			int rowCount = 0;
+			if (rs.last()) {//make cursor to point to the last row in the ResultSet object
+				rowCount = rs.getRow();
+				rs.first(); //make cursor to point to the front of the ResultSet object, donc au premier enregistrement 
+			}
+			if (rowCount != 1) {
+				rs.close();
+				return null;
+			}
+			utilisateur = new Utilisateur(rs.getInt(CLE_PRIMAIRE), rs.getString(Nom), rs.getString(Prénom), rs.getString(motDePasse));	 
+			rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return utilisateur;
 	}
+	
+    public List<Utilisateur> readTable() {
+        List<Utilisateur> rep = new ArrayList<Utilisateur>();
+        Utilisateur av = null;
+        try{
+            String requete = "SELECT "+CLE_PRIMAIRE+" FROM "+TABLE;
+            ResultSet res = Connexion.executeQuery(requete) ;
+            while(res.next()){
+                int id = res.getInt(1);
+                av = UtilisateurDAO.getInstance().read(id);
+                rep.add(av);
+            }
+        }
+        catch(SQLException e){
+            System.out.println("Echec de la tentative d'interrogation Select * : " + e.getMessage()) ;
+        }
+        return rep;
+    }
 
 }
